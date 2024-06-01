@@ -1,0 +1,6 @@
+res://scenes/firstScene.tscn
+res://objects/bulut.tscn
+res://objects/boru.tscn
+res://characters/bird.tscn
+res://scenes/sounds.tscn
+res://scripts/firstScene.gd

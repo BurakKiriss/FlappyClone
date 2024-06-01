@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbl3whirmufnb"]
+
+[ext_resource type="Texture2D" uid="uid://cjauw0lbqk7nl" path="res://assets/flappy-bird-assets-master/yellowbird-midflap.png" id="1_glsmo"]
+[ext_resource type="Script" path="res://scripts/bird.gd" id="1_sym2x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cvlw3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_glsmo")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m68qa"]
+radius = 15.2971
+
+[node name="bird" type="CharacterBody2D"]
+scale = Vector2(2.2, 2.2)
+script = ExtResource("1_sym2x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cvlw3")
+animation = &"fly"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_m68qa")

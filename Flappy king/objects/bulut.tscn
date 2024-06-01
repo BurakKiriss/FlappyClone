@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbbwsglwwakm1"]
+
+[ext_resource type="Texture2D" uid="uid://bnxba2b7ofwol" path="res://assets/flappy-bird-assets-master/bulut.png" id="1_jqnqa"]
+[ext_resource type="Script" path="res://scripts/bulut.gd" id="2_ymagr"]
+
+[node name="Bulut" type="Sprite2D"]
+position = Vector2(-183, 386)
+texture = ExtResource("1_jqnqa")
+script = ExtResource("2_ymagr")

@@ -1,0 +1,13 @@
+AudioStreamPlayer2D
+Label
+CollisionShape2D
+Area2D
+AnimatedSprite2D
+Panel
+CharacterBody2D
+Node2D
+NinePatchRect
+StaticBody2D
+Control
+CanvasLayer
+Sprite2D

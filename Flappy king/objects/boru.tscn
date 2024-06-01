@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7vhi7to88by8"]
+
+[ext_resource type="Script" path="res://scripts/borular.gd" id="1_rnskc"]
+[ext_resource type="Texture2D" uid="uid://ch8u6by3lhfsa" path="res://assets/flappy-bird-assets-master/pipe-green.png" id="2_mi0yc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idjda"]
+size = Vector2(143, 2566)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5agks"]
+size = Vector2(34, 188)
+
+[node name="boru" type="StaticBody2D"]
+script = ExtResource("1_rnskc")
+
+[node name="alt" type="NinePatchRect" parent="."]
+offset_left = -70.0
+offset_top = 94.0
+offset_right = 77.0
+offset_bottom = 643.0
+texture = ExtResource("2_mi0yc")
+patch_margin_left = 2
+patch_margin_top = 44
+patch_margin_right = 3
+patch_margin_bottom = 50
+
+[node name="üst" type="NinePatchRect" parent="."]
+offset_left = 79.0
+offset_top = -96.0
+offset_right = 226.0
+offset_bottom = 445.0
+rotation = -3.14159
+texture = ExtResource("2_mi0yc")
+patch_margin_left = 2
+patch_margin_top = 44
+patch_margin_right = 3
+patch_margin_bottom = 50
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, -1381)
+shape = SubResource("RectangleShape2D_idjda")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(3, 1379)
+shape = SubResource("RectangleShape2D_idjda")
+
+[node name="skor" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="skor"]
+position = Vector2(58, -3)
+shape = SubResource("RectangleShape2D_5agks")
+
+[connection signal="body_entered" from="skor" to="." method="_on_skor_body_entered"]

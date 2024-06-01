@@ -1,0 +1,103 @@
+[gd_scene load_steps=12 format=3 uid="uid://clle4h1re5pyf"]
+
+[ext_resource type="Script" path="res://scripts/cloudSpawn.gd" id="1_0rrsv"]
+[ext_resource type="Script" path="res://scripts/firstScene.gd" id="1_6xth1"]
+[ext_resource type="PackedScene" uid="uid://dbbwsglwwakm1" path="res://objects/bulut.tscn" id="2_johay"]
+[ext_resource type="FontFile" uid="uid://7tnokb0ga4cl" path="res://scripts/Salsa-Regular.ttf" id="4_asqj0"]
+[ext_resource type="PackedScene" uid="uid://b7vhi7to88by8" path="res://objects/boru.tscn" id="4_nodv4"]
+[ext_resource type="PackedScene" uid="uid://dbl3whirmufnb" path="res://characters/bird.tscn" id="5_qijhg"]
+[ext_resource type="AudioStream" uid="uid://bssja4mrmm0e5" path="res://sounds/hit.ogg" id="7_3a1fh"]
+[ext_resource type="AudioStream" uid="uid://dg5e1gg8puswd" path="res://sounds/point.ogg" id="8_7waca"]
+[ext_resource type="Texture2D" uid="uid://dtf2b4bqxivk1" path="res://assets/flappy-bird-assets-master/message.png" id="9_qq1t8"]
+
+[sub_resource type="Gradient" id="Gradient_ev7ho"]
+colors = PackedColorArray(1.15514e-06, 0.553903, 0.701602, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fsoed"]
+gradient = SubResource("Gradient_ev7ho")
+width = 720
+height = 1280
+fill_from = Vector2(0.5, 0.1)
+fill_to = Vector2(0.5, 1)
+metadata/_snap_enabled = true
+
+[node name="firstScene" type="Node2D"]
+script = ExtResource("1_6xth1")
+
+[node name="sky" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_fsoed")
+centered = false
+
+[node name="cloudSpawn" type="Node2D" parent="."]
+script = ExtResource("1_0rrsv")
+cloud = ExtResource("2_johay")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="right" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="down" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="skoryazici" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_asqj0")
+theme_override_font_sizes/font_size = 200
+text = "0"
+horizontal_alignment = 1
+
+[node name="highscore" type="Label" parent="CanvasLayer"]
+offset_left = 14.0
+offset_top = 2.0
+offset_right = 75.0
+offset_bottom = 126.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_asqj0")
+theme_override_font_sizes/font_size = 40
+text = "0"
+
+[node name="borular" type="Node2D" parent="."]
+
+[node name="boru" parent="borular" instance=ExtResource("4_nodv4")]
+position = Vector2(943, 634)
+
+[node name="boru2" parent="borular" instance=ExtResource("4_nodv4")]
+position = Vector2(1584, 634)
+
+[node name="bird" parent="." instance=ExtResource("5_qijhg")]
+position = Vector2(341, 640)
+ziplamaGucu = 500
+yerCekimi = 1500
+
+[node name="boruses" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_3a1fh")
+
+[node name="point" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_7waca")
+
+[node name="Message" type="Sprite2D" parent="."]
+position = Vector2(353, 991)
+scale = Vector2(1.56522, 1.6044)
+texture = ExtResource("9_qq1t8")

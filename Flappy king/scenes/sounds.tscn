@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://7warvdoo13w6"]
+
+[ext_resource type="AudioStream" uid="uid://cg7iiwu2333jg" path="res://sounds/die.ogg" id="1_yea3w"]
+[ext_resource type="AudioStream" uid="uid://bssja4mrmm0e5" path="res://sounds/hit.ogg" id="2_cfmju"]
+[ext_resource type="AudioStream" uid="uid://cks2i1pkrv3we" path="res://sounds/wing.ogg" id="3_wxu4i"]
+[ext_resource type="AudioStream" uid="uid://dg5e1gg8puswd" path="res://sounds/point.ogg" id="4_wcwcd"]
+[ext_resource type="AudioStream" uid="uid://ccptvlpsutra4" path="res://assets/flappy-bird-assets-master/love.mp3" id="5_ldbl4"]
+
+[node name="sounds" type="Node2D"]
+
+[node name="die" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_yea3w")
+
+[node name="boruses" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_cfmju")
+volume_db = -7.0
+
+[node name="flysound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_wxu4i")
+volume_db = -8.0
+
+[node name="point" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_wcwcd")
+volume_db = -6.0
+
+[node name="love" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ldbl4")
+volume_db = 10.0
